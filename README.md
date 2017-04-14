@@ -1,4 +1,6 @@
 # Parse Server Amazon SES Adapter
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/parse-server-modules/parse-server-amazon-ses-adapter.svg)](https://greenkeeper.io/)
 Used to send Parse Server password reset and email verification emails with Amazon SES.
 
 Read more here: https://github.com/ParsePlatform/parse-server.

@@ -4,7 +4,7 @@ Used to send Parse Server password reset and email verification emails with Amaz
 Read more here: https://github.com/ParsePlatform/parse-server.
 
 ## Compatibility
-Tested with Parse Server v2.2.13
+Last tested with Parse Server v3.10
 
 ## Install
 ```sh
@@ -23,7 +23,7 @@ var parse=new ParseServer({
          from: "Your Name <noreply@yourdomain.com>",
          accessKeyId: "Your AWS IAM Access Key ID",
          secretAccessKey: "Your AWS IAM Secret Access Key",
-         region: "Your AWS Region"
+         awsEndpoint: "AWS end point. Defaults to `https://email.us-east-1.amazonaws.com`"
       }
    }
 });

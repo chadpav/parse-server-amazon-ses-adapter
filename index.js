@@ -1,28 +1,25 @@
-var AmazonSES = require("amazon-ses-mailer");
+var AmazonSES = require("node-ses");
 
-module.exports=function(options){
+module.exports = function (options) {
 
-   var ses = new AmazonSES(
-      options.accessKeyId,
-      options.secretAccessKey,
-      options.region
-   );
+   var sesClient = AmazonSES.createClient({
+      key: options.accessKeyId,
+      secret: options.secretAccessKey,
+      amazon: options.awsEndpoint,
+   });
 
-   var sendMail=function(mail){
+   var sendMail = function (mail) {
 
-      return new Promise(function(resolve, reject){
+      return new Promise(function (resolve, reject) {
 
-         ses.send({
-            from: options.from,
+         sesClient.sendEmail({
             to: [mail.to],
+            from: options.from,
             subject: mail.subject,
-            body: {
-               text: mail.text
-            }
-         }, function(error, data) {
-
-            if (error) {
-               reject(error);
+            message: mail.text
+         }, function (err, data) {
+            if (err) {
+               reject(err);
             } else {
                resolve(data);
             }
